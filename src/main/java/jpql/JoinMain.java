@@ -48,7 +48,7 @@ public class JoinMain {
             /**
              * Left outer join
              */
-
+            /*
             String Query2 = "select m from Member m left outer join m.team t where t.name = :teamname";
             List<Member> resultList2 = em.createQuery(Query2, Member.class)
                     .setParameter("teamname","team")
@@ -59,6 +59,7 @@ public class JoinMain {
                 System.out.println("Username = " + member1.getUsername() + " Team Name = " + member1.getTeam().getName());
             }
             System.out.println("Left Outer Join ------------------");
+             */
 
 
             /**

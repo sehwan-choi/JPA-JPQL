@@ -1,9 +1,11 @@
-package jpabook.jpashop.domain;
+package jpql.Domain;
 
-import javax.persistence.*;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 @Entity
-public class Movie  extends Item{
+@DiscriminatorValue("M")
+public class Movie  extends Item {
 
     private String movie;
 
@@ -13,5 +15,14 @@ public class Movie  extends Item{
 
     public void setMovie(String movie) {
         this.movie = movie;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "movie='" + movie +
+                ", id=" + this.getId() +
+                ", name='" + this.getName() +
+                '}';
     }
 }

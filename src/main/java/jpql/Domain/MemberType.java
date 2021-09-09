@@ -1,5 +1,5 @@
 package jpql.Domain;
 
-public enum MemeberType {
+public enum MemberType {
     ADMIN, USER
 }

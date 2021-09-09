@@ -3,6 +3,14 @@ package jpql.Domain;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(
+        name = "Member.findByUsername",
+        query = "select m from Member m where m.username = :username"
+)
+@NamedQuery(
+        name = "Member.count",
+        query = "select count(m) from Member m"
+)
 public class Member {
 
     @Id
@@ -18,6 +26,9 @@ public class Member {
         team.getMembers().add(this);
         this.setTeam(team);
     }
+
+    @Enumerated(EnumType.STRING)
+    private MemberType type;
 
     private String username;
 
@@ -55,12 +66,26 @@ public class Member {
         this.team = team;
     }
 
+    public void addteam(Team team) {
+        team.getMembers().add(this);
+        setTeam(team);
+    }
+
     @Override
     public String toString() {
         return "Member{" +
                 "id=" + id +
+                ", type=" + type +
                 ", username='" + username + '\'' +
                 ", age=" + age +
                 '}';
+    }
+
+    public MemberType getType() {
+        return type;
+    }
+
+    public void setType(MemberType type) {
+        this.type = type;
     }
 }

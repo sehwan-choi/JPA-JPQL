@@ -1,10 +1,10 @@
-package jpabook.jpashop.domain;
+package jpql.Domain;
 
 import javax.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Item extends BaseEntity{
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Item{
 
     @Id
     @GeneratedValue
@@ -27,5 +27,13 @@ public abstract class Item extends BaseEntity{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
